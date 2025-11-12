@@ -2,6 +2,7 @@
 node_modules/
 
 # Build output
+src/
 dist/
 build/
 public/build/
