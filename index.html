@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kwala</title>
+    <link rel="stylesheet" href="./public/css/style.css">
+    <!-- <link rel="stylesheet" href="/src/output.css"> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&family=Tektur:wght@400..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <header>
+        <!-- Upcoming Event -->
+        <div class="upcoming-event bg-[#4900BC]">
+            <div class="container mx-auto py-2 px-4 sm:px-6 lg:px-8 relative text-white font-sora flex flex-col sm:flex-row justify-center items-start sm:items-center gap-3 sm:gap-8">
+                <p class="text-[12px] sm:text-sm font-extralight tracking-wide"><strong class="font-bold">Upcoming Event:</strong> <br class="sm:hidden"> Pick any on-chain event as a trigger  |  10 September, 2025 |  5:00 pm</p>
+                <a href="#" class="text-[12px] sm:text-sm font-semibold tracking-wide uppercase underline">register now</a>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="size-6 absolute top-4 sm:top-1/2 right-1 sm:right-4 -translate-y-1/2 cursor-pointer" id="close-upEvent">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                </svg>
+            </div>
+        </div>
+        
+        <!-- Navbar -->
+        <nav class="w-full top-0 left-0 z-50 backdrop-blur-sm" id="navbar">
+            <div class="container flex justify-between h-16 sm:h-20 mx-auto px-4 sm:px-6 lg:px-8">
+             <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="#" class="shrink-0 flex items-center">
+                        <img src="./public/images/kwala-logo.png" alt="logo" class="h-8 w-auto">
+                    </a>
+                </div>
+
+                <!-- Desktop Nav Links -->
+                <div class="hidden md:flex items-center gap-10">
+                <a href="#" class="font-sora text-sm tracking-wide text-[#3F3F3F] hover:text-[#4900BC] transition">Events</a>
+                <a href="#" class="font-sora text-sm tracking-wide text-[#3F3F3F] hover:text-[#4900BC] transition">Features</a>
+                <a href="#" class="font-sora text-sm tracking-wide text-[#3F3F3F] hover:text-[#4900BC] transition">Use Cases</a>
+                <a href="#" class="font-sora text-sm tracking-wide text-[#3F3F3F] hover:text-[#4900BC] transition">Pricing</a>
+                <a href="#" class="font-sora text-sm tracking-wide text-[#3F3F3F] hover:text-[#4900BC] transition">FAQs</a>
+                <a href="#" class="font-sora text-sm tracking-wide text-[#3F3F3F] hover:text-[#4900BC] transition">Docs</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="flex md:hidden items-center">
+                <button type="button" class="mobile-menu-button relative inline-flex items-center justify-center rounded-md text-[#3F3F3F] hover:text-[#4900BC] hover:bg-gray-100 focus:outline-none">
+                    <!-- Hamburger Icon -->
+                    <div class="space-y-1">
+                    <span class="top-line block w-6 h-0.5 bg-current transition-all duration-300 origin-center"></span>
+                    <span class="middle-line block w-6 h-0.5 bg-current transition-all duration-300"></span>
+                    <span class="bottom-line block w-6 h-0.5 bg-current transition-all duration-300 origin-center"></span>
+                    </div>
+                </button>
+                </div>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div class="mobile-menu w-full md:hidden absolute top-full left-0 bg-white overflow-hidden max-h-0 transition-max-height duration-300 ease-in-out">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#" class="block px-3 py-2 rounded-md font-sora text-base tracking-wide text-[#3F3F3F] hover:text-[#4900BC] hover:bg-gray-50 transition">Events</a>
+                <a href="#" class="block px-3 py-2 rounded-md font-sora text-base tracking-wide text-[#3F3F3F] hover:text-[#4900BC] hover:bg-gray-50 transition">Features</a>
+                <a href="#" class="block px-3 py-2 rounded-md font-sora text-base tracking-wide text-[#3F3F3F] hover:text-[#4900BC] hover:bg-gray-50 transition">Use Cases</a>
+                <a href="#" class="block px-3 py-2 rounded-md font-sora text-base tracking-wide text-[#3F3F3F] hover:text-[#4900BC] hover:bg-gray-50 transition">Pricing</a>
+                <a href="#" class="block px-3 py-2 rounded-md font-sora text-base tracking-wide text-[#3F3F3F] hover:text-[#4900BC] hover:bg-gray-50 transition">FAQs</a>
+                <a href="#" class="block px-3 py-2 rounded-md font-sora text-base tracking-wide text-[#3F3F3F] hover:text-[#4900BC] hover:bg-gray-50 transition">Docs</a>
+            </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero py-20 sm:py-32 lg:py-40 bg-[url('/kwala/public/images/hero-bg.png')] bg-cover bg-center">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h1 class="font-tektur tracking-wide text-[#3F3F3F] text-[38px] sm:text-5xl lg:text-[64px] font-semibold uppercase leading-snug sm:leading-[1.3] mb-10 sm:mb-5">
+                        Accelerate Web3 with <br class="hidden sm:inline-block"> <span class="text-[#00BC48]">Low-Code Workflows</span>
+                    </h1>
+                    <p class="font-sora text-xl font-light leading-tight sm:leading-[1.3] text-[#3F3F3F] mb-14 sm:mb-10">
+                        The ‘Zapier + Firebase’ for Building Onchain
+                    </p>
+                    <div class="flex flex-col sm:flex-row justify-center gap-5">
+                        <a href="#" class="inline-block shrink-0 px-8 py-3.5 bg-[#00BC48] text-white font-sora text-sm font-semibold tracking-wide uppercase hover:bg-[#00bc48ea] transition [clip-path:polygon(0%_0%,calc(100%-15px)_0%,100%_15px,100%_100%,0%_100%)]">
+                            build now
+                        </a>
+                        <a href="#" class="inline-block shrink-0 px-8 py-3.5 bg-[#4900BC] text-white font-sora text-sm font-semibold tracking-wide uppercase hover:bg-[#4800bcea] transition [clip-path:polygon(0%_0%,calc(100%-15px)_0%,100%_15px,100%_100%,0%_100%)]">
+                            book a demo
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chain Trigger Section -->
+        <section class="pt-20 sm:pt-32 lg:pt-28 bg-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="font-tektur tracking-wide text-[#3F3F3F] text-[32px] sm:text-4xl lg:text-[40px] font-semibold leading-snug sm:leading-[1.3] text-center mb-2 sm:mb-3">
+                    Every On-chain Activity Is a Trigger
+                </h2>
+                <p class="font-sora text-base font-light leading-tight sm:leading-[1.3] text-[#3F3F3F] text-center mb-6 sm:mb-16">
+                    Pick any on-chain event as a trigger and turn it into a production-ready workflow
+                </p>
+                <div class="grid grid-cols-1 sm:grid-cols-2">
+                    <div class="order-2 sm:order-1">
+                        <!-- 01 -->
+                        <div class="mb-4 sm:mb-6">
+                        <div class="flex items-center gap-5 mb-3 sm:mb-5">
+                            <span class="font-tektur text-2xl font-semibold text-black">01</span>
+                            <h2 class="font-sora text-xl sm:text-2xl font-semibold text-[#4900BC]">Price Change Triggers</h2>
+                        </div>
+                        <ul class="font-sora text-[#3F3F3F] text-xs flex flex-wrap gap-x-10 gap-y-4 pl-16 list-[square] mb-5 sm:mb-6">
+                            <li>Token price drops 10%</li>
+                            <li>ETH reaches $5,000</li>
+                            <li>Portfolio value changes</li>
+                        </ul>
+                        <hr class="mt-4 ml-11 border-gray-400">
+                        </div>
+
+                        <!-- 02 -->
+                        <div class="mb-4 sm:mb-6">
+                        <div class="flex items-center gap-5 mb-3 sm:mb-5">
+                            <span class="font-tektur text-2xl font-semibold text-black">02</span>
+                            <h2 class="font-sora text-xl sm:text-2xl font-semibold text-[#4900BC]">Event-Based Triggers</h2>
+                        </div>
+                        <ul class="font-sora text-[#3F3F3F] text-xs flex flex-wrap gap-x-10 gap-y-4 pl-16 list-[square] mb-5 sm:mb-6">
+                            <li>NFT mint events</li>
+                            <li>Transaction confirmations</li>
+                            <li>Smart contract calls</li>
+                        </ul>
+                        <hr class="mt-4 ml-11 border-gray-400">
+                        </div>
+
+                        <!-- 03 -->
+                        <div class="mb-4 sm:mb-6">
+                        <div class="flex items-center gap-5 mb-3 sm:mb-5">
+                            <span class="font-tektur text-2xl font-semibold text-black">03</span>
+                            <h2 class="font-sora text-xl sm:text-2xl font-semibold text-[#4900BC]">Time-Based Automation</h2>
+                        </div>
+                        <ul class="font-sora text-[#3F3F3F] text-xs flex flex-wrap gap-x-10 gap-y-4 pl-16 list-[square] mb-5 sm:mb-6">
+                            <li>Daily DeFi yield harvesting</li>
+                            <li>Weekly portfolio rebalancing</li>
+                            <li>Monthly reports</li>
+                        </ul>
+                        <hr class="mt-4 ml-11 border-gray-400">
+                        </div>
+
+                        <!-- 04 -->
+                        <div>
+                        <div class="flex items-center gap-5 mb-3 sm:mb-5">
+                            <span class="font-tektur text-2xl font-semibold text-black">04</span>
+                            <h2 class="font-sora text-xl sm:text-2xl font-semibold text-[#4900BC]">Cross-Chain Operations</h2>
+                        </div>
+                        <ul class="font-sora text-[#3F3F3F] text-xs flex flex-wrap gap-x-10 gap-y-4 pl-16 list-[square] mb-5 sm:mb-6">
+                            <li>Bridge assets automatically</li>
+                            <li>Multi-chain arbitrage</li>
+                            <li>Social media notifications</li>
+                        </ul>
+                        <hr class="mt-4 ml-11 border-gray-400">
+                        </div>
+                    </div>
+                    <div class="order-1 sm:order-2 mb-7 sm:mb-0">
+                        <img src="./public/images/trigger.png" class="w-auto h-auto mx-auto" alt="Every On-chain Activity Is a Trigger">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Workflow Upgrades Section -->
+        <section class="py-20 sm:py-32 lg:py-28 bg-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="font-tektur tracking-wide text-[#3F3F3F] text-[32px] sm:text-4xl lg:text-[40px] font-semibold leading-snug sm:leading-[1.3] text-center mb-2 sm:mb-3">
+                    Your Workflow Upgrades from Reactive to Proactive
+                </h2>
+                <p class="font-sora text-base font-light leading-tight sm:leading-[1.3] text-[#3F3F3F] text-center mb-6 sm:mb-14">
+                    Kwala listens to on-chain events, conditions, and state changes so your applications <br class="hidden sm:inline"> can anticipate and respond proactively to real-world events.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-14 xl:gap-16 2xl:gap-24 text-center relative">
+                     <!-- Item 1 -->
+                    <div class="flex flex-col items-center bg-white z-2 pb-7 sm:pb-0">
+                    <img src="./public/images/detects.png" alt="On-chain triggers" class="w-auto h-auto mb-4 sm:mb-6">
+                    <p class="font-sora text-base sm:text-sm 2xl:text-base font-light leading-tight sm:leading-[1.3] text-[#3F3F3F] px-8 sm:px-0">
+                        Detects on-chain triggers proactively
+                    </p>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="flex flex-col items-center bg-white z-2 pb-7 sm:pb-0">
+                    <img src="./public/images/processes.png" alt="Logic processing" class="w-auto h-auto mb-4 sm:mb-6">
+                    <p class="font-sora text-base sm:text-sm 2xl:text-base font-light leading-tight sm:leading-[1.3] text-[#3F3F3F] px-8 sm:px-0">
+                        Processes logic with conditions, states, and branches
+                    </p>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="flex flex-col items-center bg-white z-2 pb-7 sm:pb-0">
+                    <img src="./public/images/executes.png" alt="Smart contract execution" class="w-auto h-auto mb-4 sm:mb-6">
+                    <p class="font-sora text-base sm:text-sm 2xl:text-base font-light leading-tight sm:leading-[1.3] text-[#3F3F3F] px-8 sm:px-0">
+                        Executes smart contract calls, APIs, or alerts
+                    </p>
+                    </div>
+
+                    <!-- Item 4 -->
+                    <div class="flex flex-col items-center bg-white z-2">
+                    <img src="./public/images/syncs.png" alt="Cross-chain sync" class="w-auto h-auto mb-4 sm:mb-6">
+                    <p class="font-sora text-base sm:text-sm 2xl:text-base font-light leading-tight sm:leading-[1.3] text-[#3F3F3F] px-8 sm:px-0">
+                        Syncs actions across chains and services
+                    </p>
+                    </div>
+
+                    <div class="inline-block md:hidden lg:inline-block w-px sm:w-full h-full sm:h-px bg-gray-400 absolute top-0 sm:top-1/2 left-1/2 sm:left-0 z-1"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Backend Infra Section -->
+        <section class="py-14 bg-black">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-[40%_60%] xl:grid-cols-[30%_70%] gap-8 sm:gap-0">
+                <div>
+                    <h2 class="font-tektur tracking-wide text-white text-[32px] sm:text-4xl lg:text-[40px] font-semibold leading-snug sm:leading-[1.3] mb-2 sm:mb-3">
+                        Skip the <br> backend infra. <br> Go live.
+                    </h2>
+                </div>
+                <div>
+                    <img src="./public/images/backend-infra.jpeg" alt="Backend Infrastructure" class="w-auto h-auto mx-auto [clip-path:polygon(0%_0%,calc(100%-20px)_0%,100%_20px,100%_100%,20px_100%,0%_calc(100%-20px))] md:[clip-path:polygon(0%_0%,calc(100%-60px)_0%,100%_60px,100%_100%,60px_100%,0%_calc(100%-60px))]">
+                </div>
+            </div>
+        </section>
+
+        <!-- Automation Section -->
+        <section class="py-20 sm:py-32 lg:py-28 bg-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="font-tektur tracking-wide text-[#3F3F3F] text-[32px] sm:text-4xl lg:text-[40px] font-semibold leading-snug sm:leading-[1.3] text-center mb-6 sm:mb-14">
+                    Automation across Ethereum, Solana and every major Layer 2
+                </h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
+                    <!-- Card 1 -->
+                    <div class="border border-gray-200 p-6 flex flex-col">
+                        <img src="./public/images/crosschain-bridge.png" alt="Cross-Chain Bridge" class="w-10 h-10 mb-4">
+                        <h3 class="font-sora text-xl font-semibold leading-tight sm:leading-[1.3] text-[#3F3F3F] mb-4">Cross-Chain Bridge</h3>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="border border-gray-200 p-6 flex flex-col">
+                        <img src="./public/images/crosschain-data-pipeline.png" alt="Cross-Chain Data Pipeline" class="w-10 h-10 mb-4">
+                        <h3 class="font-sora text-xl font-semibold leading-tight sm:leading-[1.3] text-[#3F3F3F] mb-4">Cross-Chain Data Pipeline</h3>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="border border-gray-200 p-6 flex flex-col">
+                        <img src="./public/images/decentralized-oracle.png" alt="Decentralized Oracle" class="w-10 h-10 mb-4">
+                        <h3 class="font-sora text-xl font-semibold leading-tight sm:leading-[1.3] text-[#3F3F3F] mb-4">Decentralized Oracle</h3>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="border border-gray-200 p-6 flex flex-col">
+                        <img src="./public/images/intent-machine.png" alt="Intent Machine" class="w-10 h-10 mb-4">
+                        <h3 class="font-sora text-xl font-semibold leading-tight sm:leading-[1.3] text-[#3F3F3F] mb-4">Intent Machine</h3>
+                    </div>
+
+                    <!-- Card 5 -->
+                    <div class="border border-gray-200 p-6 flex flex-col">
+                        <img src="./public/images/automation-engine.png" alt="Automation Engine" class="w-10 h-10 mb-4">
+                        <h3 class="font-sora text-xl font-semibold leading-tight sm:leading-[1.3] text-[#3F3F3F] mb-4">Automation Engine</h3>
+                    </div>
+
+                    <!-- Card 6 -->
+                    <div class="border border-gray-200 p-6 flex flex-col">
+                        <img src="./public/images/compliance-guardrail.png" alt="Compliance Guardrail" class="w-10 h-10 mb-4">
+                        <h3 class="font-sora text-xl font-semibold leading-tight sm:leading-[1.3] text-[#3F3F3F] mb-4">Compliance Guardrail</h3>
+                    </div>
+                </div>
+
+                <!-- Button -->
+                <div class="text-center">
+                    <a href="#" class="inline-block shrink-0 px-8 py-3.5 bg-[#00BC48] text-white font-sora text-sm font-semibold tracking-wide uppercase hover:bg-[#00bc48ea] transition [clip-path:polygon(0%_0%,calc(100%-15px)_0%,100%_15px,100%_100%,0%_100%)]">
+                        start building now
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- without or with Kwala Section -->
+        <section class="py-14 bg-black">
+             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="font-tektur tracking-wide text-white text-[32px] sm:text-4xl lg:text-[40px] font-semibold leading-snug sm:leading-[1.3] sm:text-center mb-6 sm:mb-14">
+                    Faster Launch, Lower Cost, Zero Ops Burden
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-14">
+                    <div>
+                        <!-- Without Kwala -->
+                        <div class="[clip-path:polygon(0%_0%,calc(100%-15px)_0%,100%_15px,100%_100%,0%_100%)]">
+                            <!-- Orange Header -->
+                            <div class="font-sora text-2xl font-semibold leading-tight sm:leading-[1.3] text-white bg-[#BC4800] px-5 sm:px-10 py-3">
+                                Without Kwala
+                            </div>
+                            <div class="bg-linear-to-b from-[#BC4800] to-[#090400] p-0.5">
+                                <img src="./public/images/without-kwala.png" alt="Without Kwala" class="w-full h-auto bg-[#090400]">
+                            </div>
+                        </div>
+                        <div class="mt-5 sm:mt-10 ml-5 sm:ml-10">
+                            <h3 class="font-sora text-base font-semibold leading-tight sm:leading-[1.3] text-white">
+                                Time to market: <br>
+                                <span class="text-2xl font-bold text-[#BC4800]">4-6 months</span>
+                            </h3>
+                        </div>
+                    </div>
+                    <div>
+                        <!-- With Kwala -->
+                        <div class="[clip-path:polygon(0%_0%,calc(100%-15px)_0%,100%_15px,100%_100%,0%_100%)]">
+                            <!-- Green Header -->
+                            <div class="font-sora text-2xl font-semibold leading-tight sm:leading-[1.3] text-white bg-[#00BC48] px-5 sm:px-10 py-3">
+                                With Kwala
+                            </div>
+                            <div class="bg-linear-to-b from-[#00BC48] to-[#000904] p-0.5">
+                                <img src="./public/images/with-kwala.png" alt="With Kwala" class="w-full h-auto bg-[#000904]">
+                            </div>
+                        </div>
+                        <div class="mt-5 sm:mt-10 ml-5 sm:ml-10">
+                            <h3 class="font-sora text-base font-semibold leading-tight sm:leading-[1.3] text-white">
+                                Time to market: <br>
+                                <span class="text-2xl font-bold text-[#00BC48]">1 week</span>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Scale Config Section -->
+        <section class="py-20 sm:py-32 lg:py-28 bg-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="font-tektur tracking-wide text-[#3F3F3F] text-[32px] sm:text-4xl lg:text-[40px] font-semibold leading-snug sm:leading-[1.3] text-center mb-2 sm:mb-3">
+                    Scale Without Configuration
+                </h2>
+                <p class="font-sora text-base font-light leading-tight sm:leading-[1.3] text-[#3F3F3F] text-center mb-20 sm:mb-28">
+                    Whether you're automating five users or five million, you can scale without configuration, <br class="hidden sm:inline"> tuning, or surprise failures in production.
+                </p>
+                <!-- Chart Container -->
+                <div class="relative h-96 w-full bg-[url('/kwala/public/images/chart-bg.png')] bg-cover bg-center">
+
+                    <!-- Purple gradient area with curve -->
+                    <svg class="absolute inset-0 w-full h-full" preserveAspectRatio="none" viewBox="0 0 1000 400">
+                    <defs>
+                        <linearGradient id="purpleGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stop-color="#c4b5fd" stop-opacity="0.5" />
+                        <stop offset="100%" stop-color="#c4b5fd" stop-opacity="0.05" />
+                        </linearGradient>
+                    </defs>
+                    <!-- Filled area under curve -->
+                    <path
+                        d="M 100 340 Q 400 290 550 200 T 900 20 L 900 400 L 100 400 Z"
+                        fill="url(#purpleGradient)"
+                    ></path>
+                    <!-- Curve line -->
+                    <path
+                        d="M 100 340 Q 400 290 550 200 T 900 20"
+                        stroke="#4900BC"
+                        stroke-width="1"
+                        fill="none"
+                    ></path>
+                    <!-- Dots on the curve -->
+                    <circle cx="100" cy="340" r="5" fill="#4900BC"></circle>
+                    <circle cx="550" cy="200" r="5" fill="#4900BC"></circle>
+                    <circle cx="900" cy="20" r="5" fill="#4900BC"></circle>
+                    </svg>
+
+                    <!-- 5 users milestone -->
+                    <div class="absolute left-20 sm:left-[11%] top-75 sm:top-[78%] -translate-x-1/2 -translate-y-full transform">
+                    <div class="flex items-start gap-2 sm:gap-4">
+                        <img src="./public/images/5-users.png" alt="5 users" class="w-8 sm:w-12 h-8 sm:h-12">
+                        <div class="whitespace-nowrap">
+                            <div class="font-sora text-lg sm:text-2xl font-semibold text-[#3F3F3F] leading-tight sm:leading-[1.3]">5 users</div>
+                            <div class="font-sora text-sm font-light sm:text-base text-[#3F3F3F] leading-tight sm:leading-[1.3]">Prototype & MVP</div>
+                        </div>
+                    </div>
+                    </div>
+
+                    <!-- 5K users milestone -->
+                    <div class="absolute left-40 sm:left-[53%] top-42 sm:top-[40%] -translate-x-1/2 -translate-y-full transform">
+                    <div class="flex items-start gap-3">
+                        <img src="./public/images/5K-users.png" alt="5K users" class="w-8 sm:w-12 h-8 sm:h-12">
+                        <div class="whitespace-nowrap">
+                        <div class="font-sora text-lg sm:text-2xl font-semibold text-[#3F3F3F] leading-tight sm:leading-[1.3]">5K users</div>
+                        <div class="font-sora text-sm font-light sm:text-base text-[#3F3F3F] leading-tight sm:leading-[1.3]">Production ready</div>
+                        </div>
+                    </div>
+                    </div>
+
+                    <!-- 5M users milestone -->
+                    <div class="absolute right-[-15%] sm:right-0 top-0 sm:top-0 -translate-x-1/2 -translate-y-full transform">
+                    <div class="flex items-start gap-3">
+                        <img src="./public/images/5M-users.png" alt="5M users" class="w-8 sm:w-12 h-8 sm:h-12">
+                        <div class="whitespace-nowrap">
+                        <div class="font-sora text-lg sm:text-2xl font-semibold text-[#3F3F3F] leading-tight sm:leading-[1.3]">5M users</div>
+                        <div class="font-sora text-sm font-light sm:text-base text-[#3F3F3F] leading-tight sm:leading-[1.3]">Enterprise Scale</div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Kwala-powered Section -->
+        <section class="py-14 bg-black">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="font-tektur tracking-wide text-white text-[32px] sm:text-4xl lg:text-[40px] font-semibold leading-snug sm:leading-[1.3] sm:text-center mb-2 sm:mb-3">
+                    KWALA-Powered Sector-Ready Automation
+                </h2>
+                <p class="font-sora text-base font-light leading-tight sm:leading-[1.3] text-white sm:text-center mb-8 sm:mb-14">
+                    Automates across sectors at any scale, including DeFi, Identity, Compliance, Media, and more.
+                </p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5 sm:gap-6 lg:gap-4 xl:gap-5">
+                    <!-- Card 1 -->
+                    <div class="bg-[#0F0F0F] p-2 sm:p-1 xl:p-2">
+                        <img src="./public/images/defi.png" class="w-auto h-auto mx-auto mb-2" alt="DeFi">
+                        <div class="h-22 font-sora text-xl font-semibold text-white bg-black leading-tight sm:leading-[1.3] p-4 sm:p-3 xl:p-4">DeFi</div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="bg-[#0F0F0F] p-2 sm:p-1 xl:p-2">
+                        <img src="./public/images/crosschain.png" class="w-auto h-auto mx-auto  mb-2" alt="Cross-Chain Automation">
+                        <div class="h-22 font-sora text-xl font-semibold text-white bg-black leading-tight sm:leading-[1.3] p-4 sm:p-3 xl:p-4">Cross-Chain <br> Automation</div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="bg-[#0F0F0F] p-2 sm:p-1 xl:p-2">
+                        <img src="./public/images/regulatory.png" class="w-auto h-auto mx-auto  mb-2" alt="Regulatory Compliance">
+                        <div class="h-22 font-sora text-xl font-semibold text-white bg-black leading-tight sm:leading-[1.3] p-4 sm:p-3 xl:p-4">Regulatory <br> Compliance</div>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="bg-[#0F0F0F] p-2 sm:p-1 xl:p-2">
+                        <img src="./public/images/gaming.png" class="w-auto h-auto mx-auto  mb-2" alt="Gaming">
+                        <div class="h-22 font-sora text-xl font-semibold text-white bg-black leading-tight sm:leading-[1.3] p-4 sm:p-3 xl:p-4">Gaming</div>
+                    </div>
+
+                    <!-- Card 5 -->
+                    <div class="bg-[#0F0F0F] p-2 sm:p-1 xl:p-2">
+                        <img src="./public/images/depin.png" class="w-auto h-auto mx-auto  mb-2" alt="DePin">
+                        <div class="h-22 font-sora text-xl font-semibold text-white bg-black leading-tight sm:leading-[1.3] p-4 sm:p-3 xl:p-4">DePin</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- No code Section -->
+        <section class="pt-20 sm:pt-32 lg:pt-28 bg-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <video src="./public/video/no-code.webm" autoplay muted loop class="w-full h-full mx-auto object-cover"></video>
+            </div>
+        </section>
+
+        <!-- Know More Section -->
+        <section class="py-20 sm:py-32 lg:py-28 bg-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="font-tektur tracking-wide text-[#3F3F3F] text-[32px] sm:text-4xl lg:text-[40px] font-semibold leading-snug sm:leading-[1.3] text-center mb-0 sm:mb-10">
+                    Know More about KWALA
+                </h2>
+
+                <!-- FAQ 1 -->
+                <div class="faq border-b border-gray-200 py-4">
+                    <button class="flex justify-between items-center w-full py-2 faq-btn">
+                    <span class="faq-title font-sora text-lg sm:text-xl font-semibold leading-tight sm:leading-[1.3] text-[#4900BC] text-start">
+                        Does KWALA require me to run my own server?
+                    </span>
+                    <span class="faq-icon text-2xl">−</span>
+                    </button>
+                    <div class="faq-content text-[#3F3F3F] font-sora text-base font-light leading-tight sm:leading-[1.3] overflow-hidden transition-all duration-300 max-h-[200px]">
+                        No. KWALA is fully serverless and runs your logic via the Kalp Network. You can focus on building your dApp while <br class="hidden sm:inline"> KWALA handles all the rest.
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="faq border-b border-gray-200 py-4">
+                    <button class="flex justify-between items-center w-full py-2 faq-btn">
+                    <span class="faq-title font-sora text-lg sm:text-xl font-semibold leading-tight sm:leading-[1.3] text-[#7F7F7F] text-start">
+                        Can KWALA talk to Web2 APIs?
+                    </span>
+                    <span class="faq-icon text-2xl">+</span>
+                    </button>
+                    <div class="faq-content text-[#3F3F3F] font-sora text-base font-light leading-tight sm:leading-[1.3] overflow-hidden transition-all duration-300 max-h-0 opacity-0">
+                        Yes. KWALA supports off-chain Web2 API interactions.
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="faq border-b border-gray-200 py-4">
+                    <button class="flex justify-between items-center w-full py-2 faq-btn">
+                    <span class="faq-title font-sora text-lg sm:text-xl font-semibold leading-tight sm:leading-[1.3] text-[#7F7F7F] text-start">
+                        Is KWALA only for Ethereum?
+                    </span>
+                    <span class="faq-icon text-2xl">+</span>
+                    </button>
+                    <div class="faq-content text-[#3F3F3F] font-sora text-base font-light leading-tight sm:leading-[1.3] overflow-hidden transition-all duration-300 max-h-0 opacity-0">
+                        No. KWALA supports EVM and non-EVM networks.
+                    </div>
+                </div>
+
+                <!-- FAQ 4 -->
+                <div class="faq border-b border-gray-200 py-4">
+                    <button class="flex justify-between items-center w-full py-2 faq-btn">
+                    <span class="faq-title font-sora text-lg sm:text-xl font-semibold leading-tight sm:leading-[1.3] text-[#7F7F7F] text-start">
+                        Is KWALA secure and enterprise-ready?
+                    </span>
+                    <span class="faq-icon text-2xl">+</span>
+                    </button>
+                    <div class="faq-content text-[#3F3F3F] font-sora text-base font-light leading-tight sm:leading-[1.3] overflow-hidden transition-all duration-300 max-h-0 opacity-0">
+                        Yes. KWALA is built with enterprise-grade security.
+                    </div>
+                </div>
+
+                <!-- FAQ 5 -->
+                <div class="faq border-b border-gray-200 py-4">
+                    <button class="flex justify-between items-center w-full py-2 faq-btn">
+                    <span class="faq-title font-sora text-lg sm:text-xl font-semibold leading-tight sm:leading-[1.3] text-[#7F7F7F] text-start">
+                        How do I get started with KWALA?
+                    </span>
+                    <span class="faq-icon text-2xl">+</span>
+                    </button>
+                    <div class="faq-content text-[#3F3F3F] font-sora text-base font-light leading-tight sm:leading-[1.3] overflow-hidden transition-all duration-300 max-h-0 opacity-0">
+                        Start by deploying your first automation flow.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Get Started Section -->
+        <section class="bg-white">
+            <div class="container mx-auto px-0 sm:px-6 lg:px-8">
+                <div class="px-4 sm:px-0 py-14 sm:py-20 bg-[url('/kwala/public/images/cta-bg.png')] bg-cover bg-bottom [clip-path:polygon(0%_0%,100%_0%,100%_calc(100%-30px),calc(100%-30px)_100%,30px_100%,0%_calc(100%-30px))]">
+                    <h2 class="font-tektur tracking-wide text-white text-[32px] sm:text-4xl lg:text-[40px] font-semibold leading-snug sm:leading-[1.3] text-center mb-8">
+                        Get Started in Minutes. <br class="hidden sm:inline"> Launch in a Weekend.
+                    </h2>
+                    <div class="flex flex-col sm:flex-row sm:flex-wrap justify-center gap-5">
+                        <a href="#" class="flex justify-center items-center gap-3 shrink-0 px-3.5 sm:px-8 py-3.5 bg-[#00BC48] text-white font-sora text-sm font-semibold tracking-wide uppercase hover:bg-[#00bc48ea] transition [clip-path:polygon(0%_0%,calc(100%-15px)_0%,100%_15px,100%_100%,0%_100%)]">
+                            <img src="./public/images/glasshour.png" alt="build-icon" class="inline-block w-auto h-auto">
+                            start building
+                        </a>
+                        <a href="#" class="flex justify-center items-center text-center gap-3 shrink-0 px-3.5 sm:px-8 py-3.5 bg-[#2E0077] text-white font-sora text-sm font-semibold tracking-wide uppercase hover:bg-[#2e0077e7] transition [clip-path:polygon(0%_0%,calc(100%-15px)_0%,100%_15px,100%_100%,0%_100%)]">
+                            <img src="./public/images/rocket.png" alt="workflow-icon" class="inline-block w-auto h-auto">
+                            launch your first workflow
+                        </a>
+                        <a href="#" class="flex justify-center items-center gap-3 shrink-0 px-3.5 sm:px-8 py-3.5 bg-[#2E0077] text-white font-sora text-sm font-semibold tracking-wide uppercase hover:bg-[#2e0077e7] transition [clip-path:polygon(0%_0%,calc(100%-15px)_0%,100%_15px,100%_100%,0%_100%)]">
+                            <img src="./public/images/discord-white.png" alt="discord-icon" class="inline-block w-auto h-auto">
+                            join kwala dev discord
+                        </a>
+                    </div>
+                </div> 
+            </div>
+        </section>
+
+        <!-- Floating video -->
+        <div class="video-box fixed bottom-20 sm:bottom-20 right-1 sm:right-[20px] w-[150px] h-[175px] overflow-hidden z-99 transition-all duration-400 ease-in-out origin-bottom-right will-change-[transform,width,height]" id="videoBox">
+            <video id="videoPlayer" class="block w-full h-full object-contain" autoplay loop playsinline preload="none"></video>
+            <img src="./public/images/Frame.png" id="toggleBtn" class="absolute top-10 sm:top-2 right-2 sm:right-[8px] w-auto h-auto cursor-pointer transition-[opacity_0.3s_ease] hover:opacity-70" id="closeBtn">
+        </div>
+    </main>
+
+    <footer class="bg-white">
+        <div class="container mx-auto pt-22 sm:pt-24 pb-6 px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-10">
+                <!-- Logo + Description -->
+                <div class="col-span-2">
+                    <a href="#" class="inline-block">
+                        <img src="./public/images/kwala-logo-black.png" alt="Kwala Logo" class="w-48 sm:w-auto h-auto">
+                    </a>
+                    <p class="font-sora text-base font-light leading-tight sm:leading-[1.3] text-[#3F3F3F] mt-5 sm:mt-6">
+                        Your programmable Web3 backend — <br> no code, no servers, no limits.
+                    </p>
+                </div>
+
+                <!-- Products -->
+                <div>
+                    <h3 class="font-sora text-[#3F3F3F] text-base font-semibold leading-tight sm:leading-[1.3] mb-4">Products</h3>
+                    <ul class="space-y-4 font-sora text-sm font-light leading-tight sm:leading-[1.3] text-[#3F3F3F]">
+                        <li><a href="#" class="hover:text-[#4900BC] transition">How It Works</a></li>
+                        <li><a href="#" class="hover:text-[#4900BC] transition">Use Cases</a></li>
+                        <li><a href="#" class="hover:text-[#4900BC] transition">Pricing</a></li>
+                        <li><a href="#" class="hover:text-[#4900BC] transition">Documentation</a></li>
+                    </ul>
+                </div>
+
+                <!-- Company -->
+                <div>
+                    <h3 class="font-sora text-[#3F3F3F] text-base font-semibold leading-tight sm:leading-[1.3] mb-4">Company</h3>
+                    <ul class="space-y-4 font-sora text-sm font-light leading-tight sm:leading-[1.3] text-[#3F3F3F]">
+                        <li><a href="#" class="hover:text-[#4900BC] transition">Grant Program</a></li>
+                        <li><a href="#" class="hover:text-[#4900BC] transition">Blog</a></li>
+                        <li><a href="#" class="hover:text-[#4900BC] transition">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-[#4900BC] transition">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Community -->
+                <div>
+                    <h3 class="font-sora text-[#3F3F3F] text-base font-semibold leading-tight sm:leading-[1.3] mb-4">Community</h3>
+                    <ul class="space-y-4 font-sora text-sm font-light leading-tight sm:leading-[1.3] text-[#3F3F3F]">
+                        <li><a href="#" class="hover:text-[#4900BC] transition">Discord</a></li>
+                        <li><a href="#" class="hover:text-[#4900BC] transition">Twitter</a></li>
+                        <li><a href="#" class="hover:text-[#4900BC] transition">Telegram</a></li>
+                        <li><a href="#" class="hover:text-[#4900BC] transition">Support</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Bottom bar -->
+            <div class="mt-10 pt-6 border-t border-gray-200 flex flex-col md:flex-row items-center justify-between gap-4">
+                <div class="flex items-center gap-4 font-sora text-sm font-light leading-tight sm:leading-[1.3] text-[#3F3F3F]">
+                    <img src="./public/images/kwala-icon.png" class="w-auto h-auto">
+                    © 2025 KWALA. All rights reserved.
+                </div>
+
+                <!-- Social Icons -->
+                <div class="flex items-center gap-4 font-sora text-sm font-light leading-tight sm:leading-[1.3] text-[#3F3F3F]">
+                <span class="text-sm">Follow us on</span>
+                <div class="flex items-center gap-3">
+                    <a href="#"><img src="./public/images/x.png" alt="x-icon" class="w-auto h-auto"></a>
+                    <a href="#"><img src="./public/images/telegram.png" alt="telegram-icon" class="w-auto h-auto"></a>
+                    <a href="#"><img src="./public/images/discord.png" alt="discord-icon" class="w-auto h-auto"></a>
+                    <a href="#"><img src="./public/images/linkedin.png" alt="linkedin-icon" class="w-auto h-auto"></a>
+                </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./public/js/script.js"></script>
+</body>
+</html>

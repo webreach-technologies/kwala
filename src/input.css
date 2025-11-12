@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+@layer utilities {
+  .font-sora {
+    font-family: "Sora", sans-serif;
+  }
+  .font-tektur {
+    font-family: "Tektur", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+  }
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --purpleColor: #4900BC;
+  --greenColor: #00BC48;
+  --orangeColor: #BC4800;
+  --textColor: #3F3F3F;
+  --lightColor: #ffffff;
+  --darkColor: #000000;
+}
+
+/* Sticky Navbar */
+#navbar.fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  animation: slideDown 0.4s ease forwards;
+}
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* Floating video normal */
+.video-box:not(.fullscreen) {
+  transform: scale(1);
+  opacity: 1;
+}
+/* Floating Video Expanded fullscreen state */
+.fullscreen {
+  background-color: #fff !important;
+  width: 100vw !important;
+  height: 100dvh !important; /* ✅ fixes Chrome mobile bar overlap */
+  bottom: 0 !important;
+  right: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  transform: scale(1);
+  transition: all 0.4s ease-in-out;
+  z-index: 1000 !important;
+}
