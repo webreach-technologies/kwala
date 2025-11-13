@@ -106,6 +106,7 @@ window.addEventListener("load", () => {
   toggleBtn.addEventListener("click", () => {
     expanded = !expanded;
     videoBox.classList.toggle("fullscreen", expanded);
+    toggleBtn.src = expanded ? "./public/images/collapse.svg" : "./public/images/expand.svg";
 
     if (expanded) {
       // Unmute & play in fullscreen
