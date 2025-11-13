@@ -1,0 +1,56 @@
+# -------------------------------------------------------------
+# Disable Directory Browsing + Server Signature
+# -------------------------------------------------------------
+Options -Indexes
+ServerSignature Off
+
+# -------------------------------------------------------------
+# Force www (non-www → www)
+# -------------------------------------------------------------
+RewriteEngine On
+RewriteCond %{HTTP_HOST} !^www\. [NC]
+RewriteRule ^(.*)$ http://www.%{HTTP_HOST}/$1 [L,R=301]
+
+# -------------------------------------------------------------
+# Enable Gzip Compression
+# -------------------------------------------------------------
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/plain text/html text/xml text/css text/javascript application/javascript application/json application/xml application/xhtml+xml
+</IfModule>
+
+# -------------------------------------------------------------
+# Browser Cache
+# -------------------------------------------------------------
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresDefault "access plus 1 month"
+</IfModule>
+
+# -------------------------------------------------------------
+# Rewrite Rules (Clean URLs)
+# -------------------------------------------------------------
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Hide .php (example.com/about → about.php)
+    RewriteCond %{REQUEST_FILENAME}.php -f
+    RewriteRule ^([^/]+)/?$ $1.php [L]
+
+    # Redirect example.php → example
+    RewriteCond %{THE_REQUEST} \s/+(.+)\.php[\s?]
+    RewriteRule ^ %1 [R=301,L]
+
+    # Remove trailing slash (except real directories)
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.+)/$ $1 [R=301,L]
+</IfModule>
+
+# -------------------------------------------------------------
+# Security Headers
+# -------------------------------------------------------------
+<IfModule mod_headers.c>
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-XSS-Protection "1; mode=block"
+    Header set X-Content-Type-Options "nosniff"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
